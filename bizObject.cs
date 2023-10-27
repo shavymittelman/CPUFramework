@@ -46,6 +46,8 @@ namespace CPUFramework
         {
             List<T> lst = new();            
             SqlCommand cmd = SQLUtility.GetSQLCommand(_getsproc);
+            //commented out the 2 lines below because if they run then the buttons on the home page don't load
+            //because they don't have the params below...but now the lists don't load cuz the @All param doesn't run.
             SQLUtility.SetParamValue(cmd, "@All", 1);
             SQLUtility.SetParamValue(cmd, "@IncludeBlank", includeblank);
             var dt = SQLUtility.GetDataTable(cmd);
